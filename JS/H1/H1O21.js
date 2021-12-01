@@ -10,6 +10,18 @@ function setup() {
   frameRate(50);
 }
 
+var x = 120;
+var snelheid = 5;
+var diameter = 200;
+
+function setup() {
+  canvas = createCanvas(1000,300);
+  canvas.parent('processing');
+  textFont("Verdana");
+  textSize(30);
+  frameRate(50);
+}
+
 function draw() {
   background('orange');
   fill('white');
@@ -20,17 +32,21 @@ function draw() {
   stroke('white');
   strokeWeight(10);
 
-  if (mouseIsPressed == true && snelheid == 5) {
+  if (snelheid == 5) {
       fill('green');
   }
   else {
     fill('dodgerblue');
   }
   
-  if (x>880) {
-    snelheid = -1*snelheid;
+  if (mouseIsPressed == false) {
+    diameter = 100;
   }
-  if (x<120) {
+  else {
+    diameter = 200;
+  }
+  
+  if (x > 880 || x < 120) {
     snelheid = -1*snelheid;
   }
 
